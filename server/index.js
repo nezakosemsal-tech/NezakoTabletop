@@ -8,6 +8,12 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
+
+// Rota principal amigável
+app.get('/', (req, res) => {
+  res.send('<h1>NezakoTabletop API Online</h1><p>Use as rotas da API para interagir com o servidor.</p>');
+});
+
 // In-memory session store
 const sessions = {};
 
