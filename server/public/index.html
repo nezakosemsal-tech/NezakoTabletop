@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NezakoTabletop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>NezakoTabletop</h1>
+            <p>Melhor que Owlbear!</p>
+        </header>
+
+        <div id="main-menu" class="screen active">
+            <button id="create-room-btn" class="btn primary">Criar Sala</button>
+            <button id="join-room-btn" class="btn secondary">Entrar em Sala</button>
+            <button id="list-rooms-btn" class="btn secondary">Ver Salas</button>
+        </div>
+
+        <div id="create-room" class="screen">
+            <h2>Criar Nova Sala</h2>
+            <input type="text" id="room-name" placeholder="Nome da Sala" required>
+            <input type="text" id="master-name" placeholder="Nome do Mestre" required>
+            <input type="password" id="room-password" placeholder="Senha (opcional)">
+            <button id="create-btn" class="btn primary">Criar</button>
+            <button id="back-from-create" class="btn secondary">Voltar</button>
+        </div>
+
+        <div id="join-room" class="screen">
+            <h2>Entrar em Sala</h2>
+            <input type="text" id="join-room-id" placeholder="ID da Sala" required>
+            <input type="text" id="player-name" placeholder="Seu Nome" required>
+            <input type="password" id="join-password" placeholder="Senha (se houver)">
+            <button id="join-btn" class="btn primary">Entrar</button>
+            <button id="back-from-join" class="btn secondary">Voltar</button>
+        </div>
+
+        <div id="room-list" class="screen">
+            <h2>Salas Disponíveis</h2>
+            <div id="rooms-container"></div>
+            <button id="back-from-list" class="btn secondary">Voltar</button>
+        </div>
+
+        <div id="game-room" class="screen">
+            <div class="room-header">
+                <h2 id="room-title"></h2>
+                <button id="leave-room-btn" class="btn danger">Sair</button>
+            </div>
+
+            <div class="game-area">
+                <div class="chat-section">
+                    <div id="chat-messages" class="chat-messages"></div>
+                    <div class="chat-input">
+                        <input type="text" id="chat-input" placeholder="Digite sua mensagem..." maxlength="200">
+                        <button id="send-chat-btn" class="btn small">Enviar</button>
+                    </div>
+                </div>
+
+                <div class="dice-section">
+                    <input type="text" id="dice-formula" placeholder="Ex: 2d6+1" value="1d20">
+                    <button id="roll-dice-btn" class="btn primary">Rolar</button>
+                    <div id="dice-results"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="loading" class="loading">Carregando...</div>
+        <div id="error" class="error"></div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

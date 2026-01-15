@@ -38,6 +38,7 @@ app.use(cors());
 app.use(express.json());
 app.use('/maps', express.static(MAPS_DIR));
 app.use('/tokens', express.static(TOKENS_DIR));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // In-memory session store
 const sessions = {};
